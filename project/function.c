@@ -130,7 +130,7 @@ void searchUserByName() {
         printf("Khong tim thay nguoi dung nao co ten '%s'.\n", searchName);
     }
 }
-void addUser() {
+void addUser(User users[], int *numUsers) {
     if (numUsers >= 100) {
         printf("Vuot qua so luong nguoi dung toi da.\n");
         return;
@@ -196,7 +196,8 @@ void addUser() {
         while (getchar() != '\n');
     }
      newUser.locked = 0;
-    users[numUsers++] = newUser;
+     users[*numUsers] = newUser;
+    (*numUsers)++;
     printf("Them nguoi dung thanh cong!\n");
 }
 void toggleUserLock() {
